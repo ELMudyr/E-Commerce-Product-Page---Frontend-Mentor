@@ -22,7 +22,7 @@ export function CarouselPlugin() {
   );
 
   return (
-    <div className="max-w-[500px] m-auto">
+    <div className="max-w-[500px]  mx-auto lg:hidden">
       <Carousel
         plugins={[plugin.current]}
         className=" w-full mx-auto"
