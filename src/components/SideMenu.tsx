@@ -2,11 +2,7 @@ import Close from "../assets/icon-close.svg";
 import { useState } from "react";
 
 function SideMenu() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen((open) => !open);
-  };
+  const [] = useState(false);
 
   return (
     <div className="h-screen absolute bg-white top-0 w-2/3 container">

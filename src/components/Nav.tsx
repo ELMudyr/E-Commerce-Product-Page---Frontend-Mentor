@@ -1,10 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
-import Logo from '../assets/logo.svg';
-import Hamburger from '../assets/icon-menu.svg';
-import CartIcon from '../assets/icon-cart.svg';
-import Avatar from '../assets/image-avatar.png';
-import Close from '../assets/icon-close.svg';
-import Cart from './Cart';
+import { useState, useRef, useEffect } from "react";
+import Logo from "../assets/logo.svg";
+import Hamburger from "../assets/icon-menu.svg";
+import CartIcon from "../assets/icon-cart.svg";
+import Avatar from "../assets/image-avatar.png";
+import Close from "../assets/icon-close.svg";
+import Cart from "./Cart";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,10 +29,10 @@ function Nav() {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -43,58 +43,99 @@ function Nav() {
 
   return (
     <>
-      {isCartOpen && <Cart onClose={function (): void {
-        throw new Error('Function not implemented.');
-      } } quantity={0} cartItems={[]} />}
-      <div className={`fixed top-0 left-0 w-full h-full bg-black z-20 ${isOpen ? 'block' : 'hidden'} opacity-70`} />
+      {isCartOpen && (
+        <Cart
+          onClose={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+          quantity={0}
+          cartItems={[]}
+        />
+      )}
+      <div
+        className={`fixed top-0 left-0 w-full h-full bg-black z-20 ${
+          isOpen ? "block" : "hidden"
+        } opacity-70`}
+      />
 
-      <div className="bg-white flex container flex-row justify-between m-auto w-full py-4">
+      <div className="bg-white flex container flex-row justify-between m-auto w-full py-7">
         <div className="flex gap-4">
-          <img onClick={toggleMenu} className="object-none w-fit cursor-pointer lg:hidden" src={Hamburger} alt="Menu" />
+          <img
+            onClick={toggleMenu}
+            className="object-none w-fit cursor-pointer lg:hidden"
+            src={Hamburger}
+            alt="Menu"
+          />
           <img className="object-none w-fit" src={Logo} alt="Logo" />
-          <ul className="font-[400] hidden lg:flex text-Neutral-DarkGrayishBlue text-lg m-auto ml-[5rem] gap-5 ">
+          <ul className="font-[400] hidden   lg:flex text-Neutral-DarkGrayishBlue text-lg m-auto ml-[5rem] gap-8 ">
             <li>
-              <a className="cursor-pointer" href="#">
+              <a
+                className="cursor-pointer hover:border-b-primary-Orange hover:border-b-4 py-7"
+                href="#"
+              >
                 Collection
               </a>
             </li>
             <li>
-              <a className="cursor-pointer" href="#">
+              <a
+                className="cursor-pointer hover:border-b-primary-Orange hover:border-b-4 py-7 "
+                href="#"
+              >
                 Men
               </a>
             </li>
             <li>
-              <a className="cursor-pointer" href="#">
+              <a
+                className="cursor-pointer hover:border-b-primary-Orange hover:border-b-4 py-7 "
+                href="#"
+              >
                 Women
               </a>
             </li>
             <li>
-              <a className="cursor-pointer" href="#">
+              <a
+                className="cursor-pointer hover:border-b-primary-Orange hover:border-b-4 py-7 "
+                href="#"
+              >
                 About
               </a>
             </li>
             <li>
-              <a className="cursor-pointer" href="#">
+              <a
+                className="cursor-pointer hover:border-b-primary-Orange hover:border-b-4 py-7 "
+                href="#"
+              >
                 Contact
               </a>
             </li>
           </ul>
         </div>
         <div className="flex gap-4">
-          <img onClick={toggleCart} className="object-none w-fit h-8 cursor-pointer" src={CartIcon} alt="Cart" />
+          <img
+            onClick={toggleCart}
+            className="object-none w-fit h-8 cursor-pointer"
+            src={CartIcon}
+            alt="Cart"
+          />
           <img className="object-contain w-fit h-8" src={Avatar} alt="Avatar" />
         </div>
       </div>
+      <hr className="h-4 w-2/3 mx-auto hidden lg:block" />
 
       {/* Side menu */}
       <div
         ref={menuRef}
         className={`fixed top-0 container left-0 h-full bg-white w-2/3 z-30 transition-transform ${
-          isOpen ? 'transform translate-x-0' : 'transform -translate-x-full'
+          isOpen ? "transform translate-x-0" : "transform -translate-x-full"
         }`}
       >
         <div className="flex pt-[2rem]">
-          <img onClick={closeMenu} className="cursor-pointer" src={Close} alt="close" />
+          <img
+            onClick={closeMenu}
+            className="cursor-pointer"
+            src={Close}
+            alt="close"
+          />
         </div>
         <ul className="font-semibold text-Neutral-VeryDarkBlue text-xl space-y-5 pt-[4rem]">
           <li>Collection</li>

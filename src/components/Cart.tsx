@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Product from "../assets/image-product-1-thumbnail.jpg";
 import Clear from "../assets/icon-delete.svg";
 
@@ -13,14 +13,12 @@ interface CartProps {
   cartItems: CartItem[];
 }
 
-const Cart: React.FC<CartProps> = ({ onClose, quantity, cartItems }) => {
+const Cart: React.FC<CartProps> = ({ onClose, cartItems }) => {
   const getTotalPrice = () => {
     return cartItems.reduce((total, item) => total + item.quantity * 125, 0);
   };
 
-  const resetCart = () => {
-    cartItems([0]);
-  };
+  const resetCart = () => {};
 
   return (
     <div className="fixed  top-[4rem] right-[10%] w-[20rem] bg-white px-5 py-7 rounded-xl shadow-lg ">
